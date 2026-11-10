@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "boards": {
+    "puppy": {
+      "latest": "3.8.0",
+      "versions": [
+        {
+          "version": "3.8.0",
+          "region": "cn",
+          "released_at": "2026-11-10T11:18:31+08:00",
+          "notes": "小狗七七 + 一键烧录",
+          "dir": "puppy/3.8.0",
+          "requires_full": true,
+          "parts": [
+            {
+              "path": "bootloader.bin",
+              "offset": 0,
+              "size": 16256,
+              "sha256": "cb4ba595df5616c319dbf606dda2c696b716d6d447debd8e25cc49c6f060771c"
+            },
+            {
+              "path": "partition-table.bin",
+              "offset": 32768,
+              "size": 3072,
+              "sha256": "f52551a55d3da052baf356d9f720f84e80bf7dd2264b515bc7726780ecc27ed0"
+            },
+            {
+              "path": "ota_data_initial.bin",
+              "offset": 53248,
+              "size": 8192,
+              "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+            },
+            {
+              "path": "rig-puppy.bin",
+              "offset": 131072,
+              "size": 3017344,
+              "sha256": "191dd1ac841836b9c81f3dc589c7f3bedfb248ed7ac2f7da345055d105f405f5"
+            },
+            {
+              "path": "assets.bin",
+              "offset": 6684672,
+              "size": 9859792,
+              "sha256": "281ae70c709279dda2e368c9aee9828f05b87c5a6f3874bce6764a0f2f50fa9c"
+            }
+          ],
+          "sha256": {
+            "bootloader.bin": "cb4ba595df5616c319dbf606dda2c696b716d6d447debd8e25cc49c6f060771c",
+            "partition-table.bin": "f52551a55d3da052baf356d9f720f84e80bf7dd2264b515bc7726780ecc27ed0",
+            "ota_data_initial.bin": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+            "rig-puppy.bin": "191dd1ac841836b9c81f3dc589c7f3bedfb248ed7ac2f7da345055d105f405f5",
+            "assets.bin": "281ae70c709279dda2e368c9aee9828f05b87c5a6f3874bce6764a0f2f50fa9c"
+          },
+          "git_sha": "e003461",
+          "git_dirty": true,
+          "sdkconfig_sha256": "8ba9ea2a09b205787fe8c007971b0380f0e62896f47adbea85c970d6c5ab6c54",
+          "base_url": "https://github.com/Ailon-lin/spring-dog/releases/download/v3.8.0/",
+          "tag": "v3.8.0",
+          "github_repo": "Ailon-lin/spring-dog"
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-11-10T11:18:49+08:00"
+}
