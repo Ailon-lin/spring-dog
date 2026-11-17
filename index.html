@@ -73,11 +73,18 @@ b{font-weight:600;color:var(--ink)}
 .card h4{font-size:17px;font-weight:650;margin:4px 0 6px}
 .card p{font-size:14px;color:var(--muted);line-height:1.65}
 .card p+p{margin-top:6px}
-.talk{aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:22px;background:radial-gradient(ellipse at 50% 40%,#17314866,transparent 70%),#0b121a}
-.bubble{align-self:flex-start;max-width:85%;background:#ffffff0d;border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:15px}
-.bubble.me{align-self:flex-end;background:#ff713e1f;border-color:#ff713e55;border-radius:14px 14px 4px 14px}
+.card .pic.fit img{object-fit:contain;background:#0b121a}
+.hero-pic{margin:34px auto 0;max-width:520px}
+.hero-pic img{width:100%;border-radius:16px;border:1px solid var(--line)}
+.paste-hint{font-size:13px;color:var(--mint);margin-top:10px;line-height:1.6}
+.role-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.role-steps figure{margin:0;background:#0b121a;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.role-steps img{width:100%;aspect-ratio:590/656;object-fit:contain;background:#0b121a}
+.role-steps figcaption{font-size:13px;color:var(--muted);padding:9px 11px;line-height:1.5}
+.role-steps b{color:var(--orange);font-family:var(--mono);font-weight:400}
+.role-steps figcaption b:first-child{color:var(--orange)}
 /* PC：三栏卡片图取正方形，免得图撑得太高 */
-.c3 .card .pic,.c3 .talk{aspect-ratio:1/1}
+.c3 .card .pic{aspect-ratio:1/1}
 .done{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 20px;border:1px solid #b5f2d540;border-radius:14px;background:#b5f2d50d;font-size:16px;text-align:center}
 .done i{font-style:normal;color:var(--mint);font-weight:700}
 
@@ -157,9 +164,12 @@ footer span{color:var(--orange)}
   .c3,.c4,.need{grid-template-columns:1fr}
   .cards{gap:12px}
   .card.step{flex-direction:row}
-  .card.step .pic,.card.step .talk{flex:0 0 112px;aspect-ratio:auto;align-self:stretch}
-  .card.step .talk{padding:12px 8px;gap:8px}
-  .card.step .bubble{font-size:12px;padding:5px 9px;max-width:100%}
+  .card.step .pic{flex:0 0 112px;aspect-ratio:auto;align-self:stretch}
+  .card.step .pic.fit img{object-fit:contain}
+  .hero-pic{max-width:100%;margin-top:26px}
+  .role-steps{grid-template-columns:1fr;gap:10px}
+  .role-steps figure{display:flex;align-items:center}
+  .role-steps img{width:96px;flex:0 0 96px;aspect-ratio:1/1}
   .card.step .body{padding:14px 14px 16px}
   .feat{display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:center;text-align:left;padding:16px}
   .feat .ico{grid-row:1/3;font-size:26px;margin:0}
@@ -187,6 +197,7 @@ footer span{color:var(--orange)}
     <p class="kicker"><i></i>SPRING-DOG · 小机器狗六六</p>
     <h1>先用起来，<br>再接上<span class="warm">你的 AI。</span></h1>
     <p class="lead">配好网，六六就能陪你聊天。想让它更懂你，再把它接上你自己的 AI 智能中枢。</p>
+    <figure class="hero-pic"><img src="assets/intro.jpg" alt="六六产品图：摄像头、屏幕眼睛、扬声器、麦克风、可动四肢、可拆卸帽子，附表情参考与线稿图" loading="eager"></figure>
     <div class="map">
       <a href="#start"><span class="go">↘</span><div class="no">PART 1</div><h3>用起来六六</h3><p>手机配网，三步就能聊天</p></a>
       <a href="#hub"><span class="go">↘</span><div class="no">PART 2</div><h3>接入智能中枢</h3><p>一句话交给你的 AI，双向打通</p></a>
@@ -206,7 +217,7 @@ footer span{color:var(--orange)}
         <div class="body"><div class="no">02</div><h4>给六六配好 Wi-Fi</h4><p>按小程序提示连 <b>2.4 GHz</b> Wi-Fi。首页设备名旁的<b>绿点亮</b>，就是在线了。</p></div>
       </div>
       <div class="card step">
-        <div class="talk" aria-hidden="true"><span class="bubble me">（唤醒词）</span><span class="bubble">我在呢！</span><span class="bubble me">讲个故事吧</span></div>
+        <a class="pic fit" href="assets/guide-wake.jpg" target="_blank" rel="noopener"><img src="assets/guide-wake.jpg" alt="六六在桌上，上方气泡写着「你好六六~」" loading="lazy"></a>
         <div class="body"><div class="no">03</div><h4>叫醒它，开始聊</h4><p>唤醒词是<b>「你好六六」</b>。先说这四个字叫醒它，听到它应一声，再跟它说话。</p></div>
       </div>
     </div>
@@ -240,11 +251,11 @@ footer span{color:var(--orange)}
       </div>
       <div class="card step">
         <a class="pic" href="assets/guide-mcp.jpg" target="_blank" rel="noopener"><img src="assets/guide-mcp.jpg" alt="设备设置页的 MCP 控制设备区域与复制配置按钮" loading="lazy"></a>
-        <div class="body"><div class="no">02</div><h4>复制配置，发到电脑</h4><p>在「MCP 控制设备」点<b>「复制配置」</b>，发到你自己的电脑上（如微信「文件传输助手」）。<b>里面有设备密钥，不要发到群里。</b></p></div>
+        <div class="body"><div class="no">02</div><h4>复制配置，发到电脑</h4><p>在「MCP 控制设备」点<b>「复制配置」</b>，发到你自己的电脑上。<b>里面有设备密钥，注意不要分享给其他人。</b></p></div>
       </div>
       <div class="card step">
         <a class="pic" href="assets/guide-usb.jpg" target="_blank" rel="noopener"><img src="assets/guide-usb.jpg" alt="六六背面 USB-C 口插着数据线，连到笔记本电脑" loading="lazy"></a>
-        <div class="body"><div class="no">03</div><h4>用 USB 线连上电脑</h4><p>用数据线把六六<b>背面</b>的 USB-C 口连到电脑。AI 要用它给六六更新固件，Wi-Fi 设置不会丢。</p></div>
+        <div class="body"><div class="no">03</div><h4>用 USB 线连上电脑</h4><p>打开六六顶部的 USB-C 接口，用数据线连接六六和电脑。</p></div>
       </div>
     </div>
 
@@ -252,20 +263,29 @@ footer span{color:var(--orange)}
       <div class="desc">
         <div class="no">04</div>
         <h4>一句话，交给你的 AI</h4>
-        <p>复制这段话，发给电脑上的 AI，<b class="warm">紧接着粘贴刚才的设备配置</b>，一起发送。</p>
+        <p>复制下面这段话，发给电脑上的 AI。再在<b class="warm">「设备配置：」后面，粘贴第二步复制的设备配置</b>，一起发送。</p>
         <p>AI 会自己装工具、更新固件、接通六六、逐项验收。中途要你确认时，回一句「可以」就行。</p>
       </div>
       <div>
         <div class="prompt"><span id="prompt-text">请阅读 https://ailon-lin.github.io/spring-dog/agent.md ，严格按里面的步骤，帮我把六六（Spring-Dog）双向接入到你身上。我已经给六六配好网、插好了 USB 线，设备配置附在下面。遇到需要我确认的地方停下来问我。
 
-设备配置：</span><span class="paste">← 在这里粘贴从小程序复制的配置</span></div>
+设备配置：</span></div>
+        <p class="paste-hint">↑ 复制后发出去，再把第二步复制的设备配置，粘贴在「设备配置：」后面</p>
         <button class="button primary" data-copy="#prompt-text" data-newline>复制这段话 <span aria-hidden="true">↗</span></button>
       </div>
     </div>
 
     <div class="last">
       <div class="no">05</div>
-      <div><h4>粘贴角色介绍</h4><p>接通后 AI 会给你一段「角色介绍」。把它<b>整段</b>粘进小程序的「角色介绍」并保存。<b>这步不能省</b>，缺了它六六不会来问你的 AI。</p></div>
+      <div style="flex:1">
+        <h4>粘贴角色介绍</h4>
+        <p>接通后 AI 会给你一段文字。打开小程序，按下面三步把它粘进「角色介绍」并保存。<b>这步不能省</b>，缺了它六六不会来问你的 AI。</p>
+        <div class="role-steps">
+          <figure><a href="assets/guide-role1.jpg" target="_blank" rel="noopener"><img src="assets/guide-role1.jpg" alt="小程序首页，红框标出「当前生命体：六六」" loading="lazy"></a><figcaption><b>①</b> 点首页的<b>当前生命体</b></figcaption></figure>
+          <figure><a href="assets/guide-role2.jpg" target="_blank" rel="noopener"><img src="assets/guide-role2.jpg" alt="角色列表，红框标出「编辑」按钮" loading="lazy"></a><figcaption><b>②</b> 在「六六」这一行点<b>编辑</b></figcaption></figure>
+          <figure><a href="assets/guide-role3.jpg" target="_blank" rel="noopener"><img src="assets/guide-role3.jpg" alt="角色配置页，红框标出「角色介绍」输入框" loading="lazy"></a><figcaption><b>③</b> 整段粘进<b>角色介绍</b>，保存后下次对话生效</figcaption></figure>
+        </div>
+      </div>
     </div>
 
     <div class="sub-head"><h3>接好了，试一试</h3></div>
