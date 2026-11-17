@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>六六 · RIG-Puppy 机器狗 · 接入手册</title>
-<meta name="description" content="桌面级 AI 机器狗六六（RIG-Puppy）。接上你自己的 AI 智能中枢，双向打通：狗问中枢，中枢指挥狗。把本页地址交给你的 AI，即可一键接入。">
+<meta name="description" content="桌面级 AI 机器狗六六（RIG-Puppy）。接上你自己的 AI 智能中枢，双向打通：六六问中枢，中枢指挥六六。把本页地址交给你的 AI，即可一键接入。">
 <link rel="alternate" type="text/markdown" title="AI 接入说明" href="agent.md">
 <link rel="icon" href="assets/qr.svg">
 <meta property="og:title" content="六六 · RIG-Puppy 机器狗接入手册">
-<meta property="og:description" content="同一个智能体，多张脸。把本页地址交给你的 AI，一键接入机器狗。">
+<meta property="og:description" content="同一个智能体，多张脸。把本页地址交给你的 AI，一键接入六六。">
 <meta property="og:image" content="assets/poster.jpg">
 <style>
 :root{
@@ -156,7 +156,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 <header class="hero"><div class="wrap">
   <div>
     <span class="tag">桌面级 AI 陪伴机器狗 · 个人智能中枢</span>
-    <h1>一只狗，<br>接上<em>你自己的 AI</em>。</h1>
+    <h1>六六，<br>接上<em>你自己的 AI</em>。</h1>
     <p class="lead">六六不只是会聊天。接上你的智能中枢以后，它记得你的事、能查你的笔记、能替你传话；你在电脑或聊天软件里跟 AI 说一句，它就在桌上动起来。</p>
     <div class="cta">
       <button class="btn primary" data-copy="#prompt-text">📋 复制给我的 AI，一键接入</button>
@@ -170,51 +170,51 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 <section id="what"><div class="wrap">
   <div class="kicker">01 · 双向智能中枢</div>
   <h2>同一个智能体，多张脸</h2>
-  <p class="sub">狗是身体，你的 AI 是大脑。它们不是「机器狗 + 另一个语音助手」，而是同一个智能体的两个入口。</p>
+  <p class="sub">六六是身体，你的 AI 是大脑。它们不是「机器狗 + 另一个语音助手」，而是同一个智能体的两个入口。</p>
   <div class="grid g3">
-    <div class="card"><div class="icon i-red">🐾</div><h3>狗：身体与表情</h3><p>圆屏眼睛、5 路舵机、麦克风与扬声器。负责听、说、动、做表情。本地离线唤醒，没唤醒时不上传声音。</p></div>
+    <div class="card"><div class="icon i-red">🐾</div><h3>六六：身体与表情</h3><p>圆屏眼睛、5 路舵机、麦克风与扬声器。负责听、说、动、做表情。本地离线唤醒，没唤醒时不上传声音。</p></div>
     <div class="card"><div class="icon i-blue">🧠</div><h3>中枢：记忆与判断</h3><p>就是你自己在用的 AI Agent（如 Hermes、Claude Code、Codex、OpenClaw）。它有你的记忆、工具和工作空间。</p></div>
-    <div class="card"><div class="icon i-green">🔗</div><h3>rig-hub：中间那根线</h3><p>装在你电脑上的小服务。狗问问题时，它转给你的 AI 作答，再把答案送回狗嘴里。</p></div>
+    <div class="card"><div class="icon i-green">🔗</div><h3>rig-hub：中间那根线</h3><p>装在你电脑上的小服务。六六问问题时，它转给你的 AI 作答，再把答案送回六六嘴里。</p></div>
   </div>
-  <p class="quote">在聊天软件里说「让它坐下」，你的 AI 知道「它」是谁；狗自己问过的话，也进同一份记忆。</p>
+  <p class="quote">在聊天软件里说「让它坐下」，你的 AI 知道「它」是谁；六六自己问过的话，也进同一份记忆。</p>
 </div></section>
 
 <!-- ============ 交互方式 ============ -->
 <section id="interact" style="background:#fff3ec"><div class="wrap">
   <div class="kicker">02 · 交互方式</div>
   <h2>两个方向，一份记忆</h2>
-  <p class="sub">对狗说话是一个方向，跟你的 AI 说话是另一个方向。两个方向用的是同一个智能体。</p>
+  <p class="sub">对六六说话是一个方向，跟你的 AI 说话是另一个方向。两个方向用的是同一个智能体。</p>
 
   <div class="flow">
-    <div class="lbl">⬆️ 上行：你问狗，你的 AI 来答 <span class="pill p-async">异步</span></div>
+    <div class="lbl">⬆️ 上行：你问六六，你的 AI 来答 <span class="pill p-async">异步</span></div>
     <div class="row">
-      <div class="node me">你对狗说话<small>先说唤醒词</small></div><span class="arr">→</span>
-      <div class="node">机器狗<small>先应一声</small></div><span class="arr">→</span>
+      <div class="node me">你对六六说话<small>先说唤醒词</small></div><span class="arr">→</span>
+      <div class="node">六六<small>先应一声</small></div><span class="arr">→</span>
       <div class="node">rig-hub<small>你的电脑 · 局域网</small></div><span class="arr">→</span>
       <div class="node ai">你的 AI<small>查记忆 · 跑工具</small></div><span class="arr">→</span>
-      <div class="node">狗念出答案<small>几秒后播报</small></div>
+      <div class="node">六六念出答案<small>几秒后播报</small></div>
     </div>
-    <p class="note">为什么是异步：设备一次只能等 4 秒，你的 AI 认真作答通常要 10–20 秒。所以狗先应一声，答案准备好后再念。</p>
+    <p class="note">为什么是异步：设备一次只能等 4 秒，你的 AI 认真作答通常要 10–20 秒。所以六六先应一声，答案准备好后再念。</p>
   </div>
 
   <div class="flow">
-    <div class="lbl">⬇️ 下行：你跟 AI 说，狗来做 <span class="pill p-sync">同步</span></div>
+    <div class="lbl">⬇️ 下行：你跟 AI 说，六六来做 <span class="pill p-sync">同步</span></div>
     <div class="row">
-      <div class="node me">你在电脑 / 聊天软件里<small>「让狗挥个爪」</small></div><span class="arr">→</span>
+      <div class="node me">你在电脑 / 聊天软件里<small>「让六六挥个爪」</small></div><span class="arr">→</span>
       <div class="node ai">你的 AI<small>调用 dog_* 工具</small></div><span class="arr">→</span>
       <div class="node">云端通道<small>厂家云桥</small></div><span class="arr">→</span>
-      <div class="node">机器狗<small>动作 · 说话 · 表情</small></div>
+      <div class="node">六六<small>动作 · 说话 · 表情</small></div>
     </div>
-    <p class="note">你的 AI 会等狗执行完，再告诉你结果。</p>
+    <p class="note">你的 AI 会等六六执行完，再告诉你结果。</p>
   </div>
 
   <div class="examples">
-    <div class="ex"><b>💬 问答</b><span>「我明天几点开会？」狗先应一声，过一会儿把答案念出来。</span></div>
-    <div class="ex"><b>🕺 动作</b><span>「让狗坐下 / 挥挥手 / 伸个懒腰」，15 个预设动作。</span></div>
+    <div class="ex"><b>💬 问答</b><span>「我明天几点开会？」六六先应一声，过一会儿把答案念出来。</span></div>
+    <div class="ex"><b>🕺 动作</b><span>「让六六坐下 / 挥挥手 / 伸个懒腰」，15 个预设动作。</span></div>
     <div class="ex"><b>😊 表情</b><span>「让它害羞一下」「换个震惊的」，直接说中文就行。</span></div>
-    <div class="ex"><b>📢 传话</b><span>「让狗跟我妈说一声晚饭好了」，狗把这句话念出来。</span></div>
-    <div class="ex"><b>🖼️ 上屏</b><span>把一张图片或一段动画推到狗的圆屏上。</span></div>
-    <div class="ex"><b>🔀 并发</b><span>狗在跳舞时你问问题，动作不挡答案；只有它正在说话时才排队。</span></div>
+    <div class="ex"><b>📢 传话</b><span>「让六六跟我妈说一声晚饭好了」，六六把这句话念出来。</span></div>
+    <div class="ex"><b>🖼️ 上屏</b><span>把一张图片或一段动画推到六六的圆屏上。</span></div>
+    <div class="ex"><b>🔀 并发</b><span>六六在跳舞时你问问题，动作不挡答案；只有它正在说话时才排队。</span></div>
   </div>
 </div></section>
 
@@ -227,7 +227,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
   <div class="oneclick">
     <h3>🤖 复制给你的 AI</h3>
     <p>粘贴到 Hermes、Claude Code、Codex、OpenClaw 等能运行命令的 AI Agent 里：</p>
-    <div class="prompt" id="prompt-text">请阅读 https://ailon-lin.github.io/spring-dog/agent.md ，严格按里面的步骤，帮我把 RIG-Puppy 机器狗双向接入到你身上。遇到需要我操作或确认的地方停下来问我。</div>
+    <div class="prompt" id="prompt-text">请阅读 https://ailon-lin.github.io/spring-dog/agent.md ，严格按里面的步骤，帮我把六六（RIG-Puppy）双向接入到你身上。遇到需要我操作或确认的地方停下来问我。</div>
     <button class="btn copy" data-copy="#prompt-text" style="margin-top:12px">📋 复制这句话</button>
     <div class="meta">
       <span>📄 AI 说明：<a href="agent.md">agent.md</a></span>
@@ -238,7 +238,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 
   <h3 style="margin:28px 0 10px">支持哪些 AI</h3>
   <table>
-    <tr><th>你的 AI</th><th>下行：AI 指挥狗</th><th>上行：狗问 AI</th></tr>
+    <tr><th>你的 AI</th><th>下行：AI 指挥六六</th><th>上行：六六问 AI</th></tr>
     <tr><td><b>Hermes</b></td><td class="ok">✓ 一条命令</td><td class="ok">✓ 一条命令</td></tr>
     <tr><td><b>Claude Code / Codex / OpenClaw</b><br><small style="color:var(--mute)">及其他支持 MCP 的 Agent</small></td><td class="ok">✓ 注册 rig-dog 工具</td><td class="part">◐ 需要一个 OpenAI 兼容端点；没有时用本地笔记检索代答</td></tr>
   </table>
@@ -247,7 +247,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
   <ul class="check">
     <li>六六机器狗一台，和一根<b>能传数据</b>的 USB 线（只能充电的线不行）</li>
     <li>一台<b>常开</b>的电脑：macOS 或 Linux（Windows 暂不支持），装有 Node.js 18+ 与 Python 3.10+</li>
-    <li><b>2.4 GHz</b> Wi-Fi，电脑和狗连同一个网络，路由器不要开「AP 隔离」</li>
+    <li><b>2.4 GHz</b> Wi-Fi，电脑和六六连同一个网络，路由器不要开「AP 隔离」</li>
     <li>手机上的厂家小程序，用来配网和复制「设备信息」</li>
     <li>你自己的 AI Agent，能在这台电脑上运行命令</li>
   </ul>
@@ -262,14 +262,14 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
   <div class="steps">
     <div class="step"><h3>安装工具 <span class="who a">AI</span></h3>
       <pre>curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash</pre>
-      <p>装好三样东西：烧录工具 <code>spring-dog</code>、电脑侧中转 <code>rig-hub</code>、AI 用的狗控制工具 <code>rig-dog</code>。</p></div>
+      <p>装好三样东西：烧录工具 <code>spring-dog</code>、电脑侧中转 <code>rig-hub</code>、AI 用来控制六六的工具 <code>rig-dog</code>。</p></div>
 
     <div class="step"><h3>烧录固件 <span class="who h">你插线</span><span class="who a">AI</span></h3>
       <pre>~/.rig-puppy/bin/spring-dog flash --version latest --mode full</pre>
       <p>第一次只出计划，不碰设备。确认后带上计划里的 <code>--yes --plan-id</code> 再跑一次，约 4 分钟。</p></div>
 
     <div class="step"><h3>配网，复制设备信息 <span class="who h">你</span></h3>
-      <p>狗<b>坐下</b>就是进入了配网模式，用厂家小程序给它配 2.4 GHz Wi-Fi。</p>
+      <p>六六<b>坐下</b>就是进入了配网模式，用厂家小程序给它配 2.4 GHz Wi-Fi。</p>
       <p>在小程序的「设备信息」页，复制那段 <code>mcpServers</code> 配置交给 AI。<b>里面有设备密钥，不要发到群里或公开的地方。</b></p></div>
 
     <div class="step"><h3>双向接入 <span class="who a">AI</span></h3>
@@ -278,22 +278,22 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 ~/.rig-puppy/bin/rig-hub serve
 # Hermes 用户：一条命令接好上下行
 ~/.rig-puppy/bin/rig-hub connect --vendor-config @~/.rig-puppy/vendor.json</pre>
-      <p>其他 AI：注册 <code>rig-dog</code> 这个 MCP 工具，再让狗指向这台电脑的局域网 IP。</p></div>
+      <p>其他 AI：注册 <code>rig-dog</code> 这个 MCP 工具，再让六六指向这台电脑的局域网 IP。</p></div>
 
     <div class="step"><h3>粘贴角色介绍 <span class="who h">你</span></h3>
       <pre>~/.rig-puppy/bin/rig-hub role-prompt</pre>
-      <p>把输出的整段粘进小程序的「角色介绍」。<b>这步不能省</b>：缺了它，狗会自己瞎答，不会来问你的 AI。</p></div>
+      <p>把输出的整段粘进小程序的「角色介绍」。<b>这步不能省</b>：缺了它，六六会自己瞎答，不会来问你的 AI。</p></div>
   </div>
 
   <h3 style="margin:28px 0 10px">接好了吗？逐条试一遍</h3>
   <table>
     <tr><th>#</th><th>做什么</th><th>应该看到</th></tr>
-    <tr><td>1</td><td>对狗说「你好」</td><td>狗回话</td></tr>
+    <tr><td>1</td><td>对六六说「你好」</td><td>六六回话</td></tr>
     <tr><td>2</td><td>问一件只有你的 AI 知道的事</td><td>先听到确认语，几秒后听到答案</td></tr>
     <tr><td>3</td><td>同一句话再问一遍</td><td>答案只播一次，不重复</td></tr>
-    <tr><td>4</td><td>跟 AI 说「让狗挥个爪」</td><td>狗动</td></tr>
-    <tr><td>5</td><td>跟 AI 说「让狗说句晚安」</td><td>狗念出来</td></tr>
-    <tr><td>6</td><td>跟 AI 说「让狗害羞一下」</td><td>屏幕换成害羞脸</td></tr>
+    <tr><td>4</td><td>跟 AI 说「让六六挥个爪」</td><td>六六动</td></tr>
+    <tr><td>5</td><td>跟 AI 说「让六六说句晚安」</td><td>六六念出来</td></tr>
+    <tr><td>6</td><td>跟 AI 说「让六六害羞一下」</td><td>屏幕换成害羞脸</td></tr>
   </table>
 </div></section>
 
@@ -301,12 +301,12 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 <section id="faq"><div class="wrap">
   <div class="kicker">05 · 常见问题</div>
   <h2>遇到问题先看这里</h2>
-  <details><summary>狗应了一声，然后就没有下文</summary><p>多半是狗找不到你的电脑。检查 rig-hub 有没有在运行、电脑和狗是不是在同一个 Wi-Fi、路由器有没有开 AP 隔离。电脑换了网络或 IP 变了，要让 AI 重新执行「让狗指向这台电脑」。</p></details>
-  <details><summary>狗的回答不像我的 AI，像个通用助手</summary><p>「角色介绍」没粘，或者被改过。重新运行 <code>rig-hub role-prompt</code>，整段粘回小程序。</p></details>
-  <details><summary>狗反复追问同一个问题，甚至掉线</summary><p>角色介绍里「一次提问只调用一次」那条被删了。整段重新粘贴，不要删减。</p></details>
-  <details><summary>狗一直连不上网</summary><p>狗只支持 2.4 GHz。双频合一的路由器请单独开一个 2.4 GHz 网络。让狗重新进入配网模式（它会坐下）再配一次。</p></details>
-  <details><summary>烧录时提示 No serial data received</summary><p>按住狗主板上的 BOOT 键再按一下 RESET，或者拔插一次 USB 线，然后重试。也可能是线只能充电，换一根数据线。</p></details>
-  <details><summary>电脑关机或睡眠了会怎样</summary><p>下行（AI 指挥狗）要看你的 AI 在不在线。上行（狗问 AI）要靠这台电脑，电脑睡眠时狗只能用厂家自带的对话能力。</p></details>
+  <details><summary>六六应了一声，然后就没有下文</summary><p>多半是六六找不到你的电脑。检查 rig-hub 有没有在运行、电脑和六六是不是在同一个 Wi-Fi、路由器有没有开 AP 隔离。电脑换了网络或 IP 变了，要让 AI 重新执行「让六六指向这台电脑」。</p></details>
+  <details><summary>六六的回答不像我的 AI，像个通用助手</summary><p>「角色介绍」没粘，或者被改过。重新运行 <code>rig-hub role-prompt</code>，整段粘回小程序。</p></details>
+  <details><summary>六六反复追问同一个问题，甚至掉线</summary><p>角色介绍里「一次提问只调用一次」那条被删了。整段重新粘贴，不要删减。</p></details>
+  <details><summary>六六一直连不上网</summary><p>六六只支持 2.4 GHz。双频合一的路由器请单独开一个 2.4 GHz 网络。让六六重新进入配网模式（它会坐下）再配一次。</p></details>
+  <details><summary>烧录时提示 No serial data received</summary><p>按住六六的主板上的 BOOT 键再按一下 RESET，或者拔插一次 USB 线，然后重试。也可能是线只能充电，换一根数据线。</p></details>
+  <details><summary>电脑关机或睡眠了会怎样</summary><p>下行（AI 指挥六六）要看你的 AI 在不在线。上行（六六问 AI）要靠这台电脑，电脑睡眠时六六只能用厂家自带的对话能力。</p></details>
   <details><summary>在海外用，延迟高吗</summary><p>语音识别、合成和对话通道走厂家云。你的 AI 和 rig-hub 都在你自己的电脑上。如果延迟明显偏高，请联系我们确认你的设备所在的服务区。</p></details>
   <details><summary>Windows 能用吗</summary><p>暂时不能。目前支持 macOS 和 Linux。</p></details>
 </div></section>
@@ -325,7 +325,7 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
     <div class="card"><h3>⚠️ 不能做 / 要知道</h3><ul>
       <li>没有自主移动和导航，它是桌面级的</li>
       <li>需要联网：语音识别、合成和对话通道由厂家云提供</li>
-      <li>上行要求电脑和狗在同一个局域网，电脑要常开</li>
+      <li>上行要求电脑和六六在同一个局域网，电脑要常开</li>
       <li>设备密钥只放在你自己的电脑上，不要公开</li>
     </ul></div>
   </div>
@@ -349,11 +349,11 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 <section id="en"><div class="wrap">
   <div class="en">
     <h2>English · Quick start</h2>
-    <p><b>RIG-Puppy</b> is a desktop AI robot dog. Connect it to <b>your own AI agent</b> and it becomes one agent with two faces: you ask the dog, your agent answers (async). You tell your agent, the dog acts (sync).</p>
+    <p><b>RIG-Puppy</b> (Liuliu) is a desktop AI robot dog. Connect it to <b>your own AI agent</b> and it becomes one agent with two faces: you ask Liuliu, your agent answers (async). You tell your agent, Liuliu acts (sync).</p>
     <p><b>One step:</b> paste this into your agent (Hermes, Claude Code, Codex, OpenClaw, or any MCP client that can run shell commands):</p>
-    <div class="prompt" id="prompt-en" style="background:var(--blue-soft);border-color:#c8d5f7;color:var(--ink)">Read https://ailon-lin.github.io/spring-dog/agent.md and follow its steps exactly to connect my RIG-Puppy robot dog to you, both ways. Stop and ask me whenever a step needs my action or confirmation.</div>
+    <div class="prompt" id="prompt-en" style="background:var(--blue-soft);border-color:#c8d5f7;color:var(--ink)">Read https://ailon-lin.github.io/spring-dog/agent.md and follow its steps exactly to connect Liuliu, my RIG-Puppy robot dog, to you, both ways. Stop and ask me whenever a step needs my action or confirmation.</div>
     <button class="btn ghost" data-copy="#prompt-en" style="margin-top:10px;padding:8px 12px;font-size:13px">Copy</button>
-    <p style="margin-top:14px">You need: the dog plus a USB <b>data</b> cable, an always-on macOS or Linux computer (Node 18+, Python 3.10+), and <b>2.4 GHz</b> Wi-Fi shared by the dog and the computer.</p>
+    <p style="margin-top:14px">You need: Liuliu plus a USB <b>data</b> cable, an always-on macOS or Linux computer (Node 18+, Python 3.10+), and <b>2.4 GHz</b> Wi-Fi shared by Liuliu and the computer.</p>
   </div>
 </div></section>
 

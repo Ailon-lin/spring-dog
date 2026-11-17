@@ -1,9 +1,9 @@
-# RIG-Puppy 机器狗 · AI 接入说明（agent.md）
+# 六六（RIG-Puppy）· AI 接入说明（agent.md）
 
-> **读者是 AI Agent。** 用户把本页地址交给你，意思是：「帮我把 RIG-Puppy 机器狗接到你身上」。
+> **读者是 AI Agent。** 用户把本页地址交给你，意思是：「帮我把六六接到你身上」。
 > 按下面的顺序执行。每一步都有「验证」，验证不通过就停在这一步，不要往下走。
 >
-> English summary: You are an AI agent. The user wants you to connect their RIG-Puppy robot dog
+> English summary: You are an AI agent. The user wants you to connect their robot dog Liuliu (六六, RIG-Puppy)
 > to you (two-way). Follow the steps in order. Verify each step. Stop at every **STOP** and ask the user.
 
 - 人读版：https://ailon-lin.github.io/spring-dog/
@@ -34,10 +34,10 @@
 |---|---|---|
 | 操作系统 | `uname -s` | macOS 或 Linux。**Windows 暂不支持**，遇到就告诉用户 |
 | 你是哪种 Agent | 你自己知道 | Hermes / Claude Code / Codex / OpenClaw / 其他 MCP 客户端 |
-| 这台电脑能否常开 | 问用户 | 狗问问题时要靠这台电脑作答，电脑睡眠时上行不可用 |
+| 这台电脑能否常开 | 问用户 | 六六问问题时要靠这台电脑作答，电脑睡眠时上行不可用 |
 
-**硬前提**：机器狗与这台电脑必须在**同一个局域网**。狗只支持 **2.4 GHz** Wi-Fi。
-路由器开了「AP 隔离 / 访客网络隔离」时，狗连不到电脑。
+**硬前提**：六六与这台电脑必须在**同一个局域网**。六六只支持 **2.4 GHz** Wi-Fi。
+路由器开了「AP 隔离 / 访客网络隔离」时，六六连不到电脑。
 
 ---
 
@@ -52,8 +52,8 @@ curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 | 入口 | 作用 |
 |---|---|
 | `spring-dog` | USB 烧录 CLI（Node ≥ 18） |
-| `rig-hub` | 电脑侧常驻中转：接住狗的提问，转给你作答，再把答案推回狗 |
-| `rig-dog` | MCP 适配器（stdio）：让你调用狗的动作、说话、表情 |
+| `rig-hub` | 电脑侧常驻中转：接住六六的提问，转给你作答，再把答案推回六六 |
+| `rig-dog` | MCP 适配器（stdio）：让你调用六六的动作、说话、表情 |
 
 同时把技能装进 `~/.agents/skills/spring-dog-cli`，并链到 `~/.claude/skills/`。
 
@@ -68,9 +68,9 @@ curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 
 ---
 
-## 3. 烧录固件（狗已烧过最新版时跳过）
+## 3. 烧录固件（六六已烧过最新版时跳过）
 
-1. 让用户用**数据线**把狗直插电脑（只供电的线不行，尽量不经 USB Hub）。
+1. 让用户用**数据线**把六六直插电脑（只供电的线不行，尽量不经 USB Hub）。
 2. 初始化并自检：
 
    ```bash
@@ -115,7 +115,7 @@ curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 
 **STOP**：请用户完成下面两件事，完成后告诉你：
 
-1. 狗连不上 Wi-Fi 时会自动进入配网模式，**可见信号是狗坐下**。用户用厂家小程序给狗配 2.4 GHz Wi-Fi。
+1. 六六连不上 Wi-Fi 时会自动进入配网模式，**可见信号是六六坐下**。用户用厂家小程序给六六配 2.4 GHz Wi-Fi。
 2. 在小程序的「设备信息」页，复制整段 `mcpServers` JSON 发给你。它长这样：
 
    ```json
@@ -174,7 +174,7 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 ### 6B. 你是 Claude Code / Codex / OpenClaw / 其他 MCP 客户端
 
-**下行（你 → 狗）**：
+**下行（你 → 六六）**：
 
 1. 写凭据文件 `~/.rig-puppy/dog.env`（权限 `0600`）：
 
@@ -196,9 +196,9 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 3. 重启或重载你的 MCP 连接。**验证**：你能看到 `dog_say`、`dog_call`、`dog_emote` 三个工具。
 
-**上行（狗 → 你）**：
+**上行（六六 → 你）**：
 
-1. 把同样三项凭据写进 `~/.rig-hub/config.json` 的 `bridge_url`、`bridge_token`、`bridge_device`（用它们把答案推回狗）。
+1. 把同样三项凭据写进 `~/.rig-hub/config.json` 的 `bridge_url`、`bridge_token`、`bridge_device`（用它们把答案推回六六）。
 2. rig-hub 的大脑需要一个 **OpenAI 兼容端点**（`POST /v1/chat/completions`）。你有这样的端点时，填：
 
    ```json
@@ -211,9 +211,9 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 ---
 
-## 7. 让狗找到这台电脑
+## 7. 让六六找到这台电脑
 
-1. 查本机局域网 IP：macOS 用 `ipconfig getifaddr en0`（不通再试 `en1`），Linux 用 `hostname -I`。**不能用 `127.0.0.1` 或 `localhost`**，因为狗从它自己的网卡来连。
+1. 查本机局域网 IP：macOS 用 `ipconfig getifaddr en0`（不通再试 `en1`），Linux 用 `hostname -I`。**不能用 `127.0.0.1` 或 `localhost`**，因为六六从它自己的网卡来连。
 2. 用 `dog_call` 工具调用：
 
    ```json
@@ -231,11 +231,11 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 ~/.rig-puppy/bin/rig-hub role-prompt
 ```
 
-**STOP**：把输出的整段交给用户，请用户粘进厂家小程序的「角色介绍」。缺了这一步，狗会用厂家 LLM 自己回答，不会来问你。
+**STOP**：把输出的整段交给用户，请用户粘进厂家小程序的「角色介绍」。缺了这一步，六六会用厂家 LLM 自己回答，不会来问你。
 
 这段里有两条不能删：
-- 「一次提问只调用一次 `self.hub.ask`」：删掉的话，狗会反复追问，把设备压到掉线。
-- 「技术错误不要念出来」：删掉的话，狗会把链路报错念给用户听。
+- 「一次提问只调用一次 `self.hub.ask`」：删掉的话，六六会反复追问，把设备压到掉线。
+- 「技术错误不要念出来」：删掉的话，六六会把链路报错念给用户听。
 
 ---
 
@@ -243,12 +243,12 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 | # | 做什么 | 期望 |
 |---|---|---|
-| 1 | 用户对狗说「你好」 | 狗回话 |
+| 1 | 用户对六六说「你好」 | 六六回话 |
 | 2 | 用户问一件只有你知道的事 | 先听到确认语，**几秒后**听到答案 |
 | 3 | 用户把同一句再问一遍 | 答案只播一次，不重复念 |
-| 4 | 你调用 `dog_call` 让狗挥手 | 狗动 |
-| 5 | 你调用 `dog_say` 说一句话 | 狗念出来 |
-| 6 | 你调用 `dog_emote`，参数「害羞」 | 狗屏换成害羞脸 |
+| 4 | 你调用 `dog_call` 让六六挥手 | 六六动起来 |
+| 5 | 你调用 `dog_say` 说一句话 | 六六念出来 |
+| 6 | 你调用 `dog_emote`，参数「害羞」 | 六六的屏幕换成害羞脸 |
 | 7 | 查 health | `async:true`、`push_failures:0`；有大脑时 `brain:true` |
 
 完成后给用户一份简短报告：哪些项通过、哪些没通过、没通过的原因。不要写成「全部完成」，除非 7 项都真的通过了。
@@ -259,12 +259,12 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 | 症状 | 先查 |
 |---|---|
-| 狗问问题后没有下文 | rig-hub 在跑吗？`self.hub.set_endpoint` 的 IP 是不是当前 IP？同一局域网吗？有没有 AP 隔离？ |
+| 六六问问题后没有下文 | rig-hub 在跑吗？`self.hub.set_endpoint` 的 IP 是不是当前 IP？同一局域网吗？有没有 AP 隔离？ |
 | health 里 `async:false` | `bridge_token` / `bridge_device` 没填全 |
 | `dog_*` 工具报缺少 `RIG_DOG_TOKEN` | MCP 进程没读到 `dog.env`，检查 `RIG_DOG_ENV_FILE` |
-| 狗回答的是厂家的话，不是你的 | 第 8 步的角色介绍没粘，或被改过 |
-| 狗反复追问同一个问题 | 角色介绍缺了「一次只调用一次」那条 |
-| 狗一直不上线 | 只支持 2.4 GHz；让狗重新进入配网模式（坐下）重新配 |
+| 六六回答的是厂家的话，不是你的 | 第 8 步的角色介绍没粘，或被改过 |
+| 六六反复追问同一个问题 | 角色介绍缺了「一次只调用一次」那条 |
+| 六六一直不上线 | 只支持 2.4 GHz；让六六重新进入配网模式（坐下）重新配 |
 | 烧录时串口被占用 | 关掉其他串口工具或另一个正在烧录的会话 |
 
 ---
@@ -273,5 +273,5 @@ curl -s localhost:8765/api/health -H "Authorization: Bearer <rig-hub token>"
 
 - 这是**桌面级原型**，没有自主移动与导航能力。
 - 语音识别、语音合成与对话通道由厂家云提供，需要联网。
-- 你（用户的 AI）负责「想」：记忆、工具、判断。狗是同一个智能体的一张脸。
-- 上行是**异步**的：设备的工具回调只有 4 秒，完整作答通常要 10–20 秒，所以狗先应一声，答案稍后播报。
+- 你（用户的 AI）负责「想」：记忆、工具、判断。六六是同一个智能体的一张脸。
+- 上行是**异步**的：设备的工具回调只有 4 秒，完整作答通常要 10–20 秒，所以六六先应一声，答案稍后播报。
