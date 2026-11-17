@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#080d14">
+<meta name="theme-color" content="#0b0d10">
 <title>小机器狗六六 · 使用说明 · 发条旅人</title>
 <meta name="description" content="小机器狗六六（Spring-Dog）使用说明：先用手机配网和六六聊起来，再把它接上你自己的 AI 智能中枢。">
 <link rel="alternate" type="text/markdown" title="AI 接入说明" href="agent.md">
@@ -11,180 +11,177 @@
 <meta property="og:title" content="小机器狗六六 · 使用说明">
 <meta property="og:description" content="先用起来，再接上你自己的 AI。">
 <style>
-:root{--bg:#080d14;--card:#101922;--card2:#0e1821;--ink:#eef4f6;--muted:#a4b0bc;--dim:#7f93a5;--orange:#ff713e;--mint:#b5f2d5;--line:#ffffff1a;--font:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--font);-webkit-font-smoothing:antialiased}
+/* 设计变量与官网（发条旅人 · 机器人工坊）一致 */
+:root{--bg:#0b0d10;--bg2:#0e1116;--card:#14181f;--line:#232a33;--txt:#f5f2ec;--sub:#9aa3b2;--dim:#6a7380;--gold:#d8b878;--accent:#ff8a5c}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-h1,h2,h3,p{margin:0}
-h1,h2{letter-spacing:-.03em;line-height:1.2;font-weight:650}
-button{font:inherit;color:inherit;cursor:pointer;border:0}
-button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--mint);outline-offset:4px}
-.warm{color:var(--mint)}
-b{font-weight:600;color:var(--ink)}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+b{font-weight:600;color:var(--txt)}
+em{font-style:normal;color:var(--gold)}
 
-/* ===== 顶栏：商城同款结构，官网配色 ===== */
-.nav{position:sticky;top:0;z-index:20;background:#080d14d1;border-bottom:1px solid #ffffff0d;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+/* ===== 顶部导航（官网同款） ===== */
+.nav{position:sticky;top:0;z-index:20;background:rgba(11,13,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand img{width:38px;height:38px;border-radius:9px;background:#fff}
-.brand .name{font-size:16px;font-weight:650;letter-spacing:.06em}
-.brand .slogan{font-size:12px;color:#a7b8c9}
-.nav-links{display:flex;gap:28px;font-size:15px;color:#c1cbd6}
-.nav-links a:hover{color:var(--orange)}
+.logo{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#b08d52);display:flex;align-items:center;justify-content:center;font-weight:700;color:#14120d;font-size:18px}
+.brand .name{font-size:16px;font-weight:700;letter-spacing:.5px}
+.brand .slogan{font-size:12px;color:var(--sub)}
+.nav-right{display:flex;align-items:center;gap:26px}
+.nav-links{display:flex;gap:24px;font-size:14px;color:var(--sub)}
+.nav-links a:hover{color:var(--txt)}
+.btn-mini{display:inline-block;padding:9px 18px;border-radius:9px;background:var(--accent);color:#fff;font-size:14px;font-weight:600}
 
-.page{max-width:1200px;margin:0 auto;padding:0 24px 40px}
+.page{max-width:1200px;margin:0 auto;padding:0 24px 64px}
 
-/* ===== 首屏 ===== */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;text-align:left;padding:64px 0 8px}
-.kicker{font:13px var(--mono);letter-spacing:.16em;color:#9cb2c5}
-.kicker i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 16px #b5f2d577;margin-right:10px;vertical-align:1px}
-.hero h1{font-size:clamp(34px,5vw,52px);margin-top:16px}
-.hero .lead{font-size:17px;color:#b6c2ce;margin:16px 0 0;max-width:520px}
-.map{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:52px 0 0}
-.map a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;text-align:left;transition:border-color .2s,transform .2s}
-.map a:hover{border-color:#ff713e80;transform:translateY(-3px)}
-.map .no{font:12px var(--mono);letter-spacing:.14em;color:var(--orange)}
-.map h3{font-size:19px;margin-top:6px}
-.map p{font-size:14px;color:var(--muted);margin-top:4px}
-.map .go{float:right;color:var(--orange)}
+/* ===== 英雄区（官网同款：居中标题） ===== */
+.hero{text-align:center;padding:52px 0 28px}
+.kicker{display:inline-block;font-size:13px;color:var(--gold);letter-spacing:2px}
+.hero .kicker{margin-bottom:14px}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:1px;line-height:1.2}
+.hero .lead{max-width:620px;margin:16px auto 0;font-size:16px;color:var(--sub)}
 
-/* ===== 部分标题 ===== */
-.part{margin-top:80px;padding-top:44px;border-top:1px solid var(--line)}
-.part-head{text-align:center;margin-bottom:32px}
-.part-head .no{font:13px var(--mono);letter-spacing:.16em;color:var(--orange)}
-.part-head h2{font-size:clamp(28px,3.6vw,38px);margin-top:8px}
-.part-head p{font-size:15px;color:var(--muted);margin-top:10px}
-.sub-head{text-align:center;margin:52px 0 22px}
-.sub-head h3{font-size:22px;font-weight:650}
-.sub-head p{font-size:14px;color:var(--muted);margin-top:6px}
+/* ===== 总览：左介绍图，右两部分目录 ===== */
+.overview{display:grid;grid-template-columns:5fr 7fr;gap:20px;margin-top:30px;align-items:stretch}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.intro img{width:100%;height:100%;object-fit:cover}
+.toc{display:grid;grid-template-rows:auto 1fr;gap:20px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.toc a:hover{border-color:var(--gold);transform:translateY(-3px)}
+.toc .t-head{display:flex;justify-content:space-between;align-items:baseline}
+.toc .kicker{font-size:12px}
+.toc .go{color:var(--accent);font-size:14px;font-weight:600}
+.toc h3{font-size:22px;font-weight:800;margin-top:6px}
+.toc p{font-size:14px;color:var(--sub);margin-top:4px}
+.toc ol{list-style:none;margin-top:16px;border-top:1px solid var(--line)}
+.toc li{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.toc li:last-child{border-bottom:0;padding-bottom:0}
+.toc li i{font-style:normal;font-size:12px;color:var(--accent);letter-spacing:1px;font-weight:600;width:20px}
+.toc li span{color:var(--sub);font-size:13px;margin-left:auto}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(216,184,120,.1);color:var(--gold);border:1px solid rgba(216,184,120,.25)}
 
-/* ===== 步骤卡：商城「使用场景」卡片同款，图在上、字在下 ===== */
-.cards{display:grid;gap:16px}
-.c3{grid-template-columns:repeat(3,1fr)}
-.c4{grid-template-columns:repeat(4,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.card .pic{display:block;aspect-ratio:4/5;background:#0b121a;overflow:hidden}
-.card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.card .pic:hover img{transform:scale(1.03)}
-.card .body{padding:16px 18px 20px}
-.card .no{font:12px var(--mono);letter-spacing:.12em;color:var(--orange)}
-.card h4{font-size:17px;font-weight:650;margin:4px 0 6px}
-.card p{font-size:14px;color:var(--muted);line-height:1.65}
-.card p+p{margin-top:6px}
-.card .pic.fit img{object-fit:contain;background:#0b121a}
-.hero-copy,.hero-pic{min-width:0}
-.hero-pic{margin:0}
-.hero-pic img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
-.paste-hint{font-size:13px;color:var(--mint);margin-top:10px;line-height:1.6}
-.role-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
-.role-steps figure{margin:0;background:#0b121a;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.role-steps img{width:100%;aspect-ratio:590/656;object-fit:contain;background:#0b121a}
-.role-steps figcaption{font-size:13px;color:var(--muted);padding:9px 11px;line-height:1.5}
-.role-steps b{color:var(--orange);font-family:var(--mono);font-weight:400}
-.role-steps figcaption b:first-child{color:var(--orange)}
-/* PC：三栏卡片图取正方形，免得图撑得太高 */
-.c3 .card .pic{aspect-ratio:1/1}
-.done{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 20px;border:1px solid #b5f2d540;border-radius:14px;background:#b5f2d50d;font-size:16px;text-align:center}
-.done i{font-style:normal;color:var(--mint);font-weight:700}
+/* ===== 通用 section（官网同款） ===== */
+.section{margin-top:72px}
+.s-head{text-align:center;margin-bottom:32px}
+.s-head h2{font-size:28px;font-weight:800;margin-top:6px}
+.s-head p{font-size:14px;color:var(--sub);margin-top:8px}
+.sub-head{display:flex;align-items:baseline;gap:12px;margin:44px 0 16px}
+.sub-head h3{font-size:18px;font-weight:700}
+.sub-head p{font-size:13px;color:var(--sub)}
 
-/* ===== 作用：商城「功能亮点」同款 ===== */
-.feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 20px;text-align:center}
-.feat .ico{font-size:30px;line-height:1;display:block;margin-bottom:12px}
-.feat h4{font-size:17px;font-weight:650}
-.feat p{font-size:14px;color:var(--muted);margin-top:6px}
-.note{text-align:center;font-size:14px;color:var(--dim);margin-top:14px}
+/* ===== 步骤卡：每一步同一种卡，图在上、字在下 ===== */
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.step:hover{border-color:var(--gold);transform:translateY(-3px)}
+.step .pic{display:block;aspect-ratio:1/1;background:#08090c;overflow:hidden}
+.step .pic img{width:100%;height:100%;object-fit:contain;padding:10px}
+.step .body{padding:14px 16px 18px}
+.no{font-size:12px;color:var(--accent);letter-spacing:1px;font-weight:600}
+.step h4{font-size:16px;font-weight:700;margin-top:2px}
+.step p{font-size:13px;color:var(--sub);margin-top:4px;line-height:1.65}
+.step p b{color:var(--txt)}
+.step .warn{color:var(--gold)}
 
-.need{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.need li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 40px;position:relative;font-size:14px;color:#c9d4dd}
-.need li::before{content:"✓";position:absolute;left:15px;top:14px;color:var(--mint);font-weight:700}
+.done{margin-top:16px;text-align:center;padding:14px 20px;border:1px solid rgba(216,184,120,.25);border-radius:14px;background:rgba(216,184,120,.06);font-size:15px;color:var(--gold)}
 
-/* ===== 一句话交给 AI ===== */
-.send{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:center;margin-top:16px;background:linear-gradient(180deg,#ff713e12,transparent);border:1px solid var(--line);border-radius:18px;padding:30px}
-.send .no{font:12px var(--mono);letter-spacing:.12em;color:var(--orange)}
-.send h4{font-size:22px;font-weight:650;margin:6px 0 10px}
-.send .desc p{font-size:15px;color:var(--muted)}
+/* ===== 功能亮点（官网同款） ===== */
+.feature{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center}
+.feature .ico{font-size:32px;display:block;margin-bottom:10px;line-height:1.2}
+.feature h4{font-size:16px;font-weight:700}
+.feature p{font-size:13px;color:var(--sub);margin-top:6px}
+
+/* ===== 准备清单 ===== */
+.need{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.need li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 38px;position:relative;font-size:14px;color:var(--sub)}
+.need li::before{content:"✓";position:absolute;left:15px;top:14px;color:var(--gold);font-weight:700}
+
+/* ===== 第 4 步：一句话交给 AI（官网 CTA 同款） ===== */
+.send{margin-top:16px;display:grid;grid-template-columns:5fr 7fr;gap:28px;align-items:center;background:linear-gradient(180deg,rgba(216,184,120,.08),transparent);border:1px solid var(--line);border-radius:20px;padding:32px}
+.send h4{font-size:22px;font-weight:800;margin:4px 0 10px}
+.send .desc p{font-size:14px;color:var(--sub)}
 .send .desc p+p{margin-top:8px}
-.prompt{background:var(--card2);border:1px solid #9ae3d628;border-radius:14px;padding:20px;font-size:16px;line-height:1.75;white-space:pre-line}
-.prompt .paste{display:block;margin-top:6px;padding:10px 12px;border:1px dashed #b5f2d566;border-radius:8px;color:var(--mint);font-size:14px}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:5px;padding:14px 26px;font-size:16px;line-height:1.4;transition:transform .2s,background .2s;margin-top:14px}
-.button:hover{transform:translateY(-2px)}
-.primary{background:var(--orange);color:#12171d;font-weight:600}
-.primary:hover{background:#ff895e}
-.last{margin-top:16px;display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
-.last .no{font:12px var(--mono);letter-spacing:.12em;color:var(--orange);white-space:nowrap;padding-top:3px}
-.last h4{font-size:17px;font-weight:650;margin-bottom:4px}
-.last p{font-size:14px;color:var(--muted)}
+.send .desc b{color:var(--gold)}
+.prompt{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:15px;line-height:1.75;white-space:pre-line}
+.send-act{display:flex;align-items:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.btn-main{display:inline-block;padding:13px 32px;border-radius:12px;background:var(--accent);color:#fff;font-size:16px;font-weight:700;box-shadow:0 8px 24px rgba(255,138,92,.28);transition:.2s}
+.btn-main:hover{transform:translateY(-2px)}
+.hint{font-size:12px;color:var(--dim)}
 
 /* ===== 试一试 ===== */
-.try div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.try b{display:block;font:12px var(--mono);letter-spacing:.12em;color:var(--orange);font-weight:400}
-.try q{display:block;quotes:"「" "」";font-size:16px;margin-top:6px}
-.try span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.try{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.try q{display:block;quotes:"「" "」";font-size:16px;font-weight:700;margin-top:10px}
+.try p{font-size:13px;color:var(--sub);margin-top:4px}
 
-/* ===== 常见问题：官网价值观列表同款 ===== */
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;align-items:start}
-.faq details{border-bottom:1px solid #ffffff1f;padding:18px 0}
-.faq summary{display:flex;justify-content:space-between;gap:20px;cursor:pointer;list-style:none;font-size:16px}
+/* ===== 常见问题 ===== */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .25s}
+.faq details[open]{border-color:rgba(216,184,120,.4)}
+.faq summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;font-size:15px;font-weight:600}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"＋";color:#758ca2;font-weight:200;transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg);color:var(--orange)}
-.faq details p{font-size:15px;color:var(--muted);margin-top:10px}
+.faq summary::after{content:"+";color:var(--sub);font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
+.faq details p{font-size:14px;color:var(--sub);margin-top:10px}
 
-.for-ai{margin:56px 0 0;font-size:13px;color:var(--dim);border-top:1px solid var(--line);padding-top:22px;line-height:1.8}
-.for-ai a{color:#a9c4d4;border-bottom:1px solid #ffffff26}
-footer{text-align:center;padding:30px 24px 44px;font-size:13px;color:#5f7488;border-top:1px solid var(--line);margin-top:40px}
-footer span{color:var(--orange)}
+.for-ai{margin-top:56px;font-size:12px;color:var(--dim);line-height:1.8;text-align:center}
+.for-ai a{color:var(--sub);border-bottom:1px solid var(--line)}
+footer{text-align:center;padding:30px 0 40px;font-size:12px;color:#5a6472}
 
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--mint);color:#14232d;padding:10px 18px;border-radius:30px;font-size:14px;opacity:0;transition:.25s;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--gold);color:#14120d;padding:10px 18px;border-radius:30px;font-size:14px;font-weight:600;opacity:0;transition:.25s;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%)}
 
-/* ===== 大屏：与商城一致，内容更宽 ===== */
+/* ===== 大屏（官网同款） ===== */
 @media(min-width:1600px){.nav-inner,.page{max-width:1400px}}
 
 /* ===== 平板 ===== */
-@media(max-width:1000px){
-  .hero{grid-template-columns:1fr;gap:34px;text-align:center}
-  .hero .lead{margin:16px auto 0}
-  .hero-pic{max-width:460px;margin:0 auto}
-  .map{margin-top:36px}
-  .c4{grid-template-columns:repeat(2,1fr)}
-  .need{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){
+  .hero{padding-top:36px}
+  .hero h1{font-size:30px}
+  .nav-links{display:none}
+  .overview{grid-template-columns:1fr}
+  .intro{max-width:460px;margin:0 auto}
+  .intro img{height:auto}
+  .toc{grid-template-rows:none}
+  .g4,.need{grid-template-columns:repeat(2,1fr)}
   .send{grid-template-columns:1fr;gap:18px}
+  .faq{grid-template-columns:1fr}
 }
 
-/* ===== 手机：单列，图文横排更省屏 ===== */
-@media(max-width:700px){
+/* ===== 手机：单列，步骤卡改成左图右字更省屏 ===== */
+@media(max-width:600px){
   .nav-inner{padding:12px 16px}
-  .nav-links{display:none}
-  .brand img{width:34px;height:34px}
-  .page{padding:0 16px 32px}
-  .hero{padding-top:44px}
-  .hero .lead{font-size:16px}
-  .map{grid-template-columns:1fr;gap:10px;margin-top:28px}
-  .part{margin-top:56px;padding-top:36px}
-  .part-head{margin-bottom:24px}
-  .sub-head{margin:40px 0 18px}
-  .c3,.c4,.need{grid-template-columns:1fr}
-  .cards{gap:12px}
-  .card.step{flex-direction:row}
-  .card.step .pic{flex:0 0 112px;aspect-ratio:auto;align-self:stretch}
-  .card.step .pic.fit img{object-fit:contain}
-  .hero-pic{max-width:100%;margin-top:26px}
-  .role-steps{grid-template-columns:1fr;gap:10px}
-  .role-steps figure{display:flex;align-items:center}
-  .role-steps img{width:96px;flex:0 0 96px;aspect-ratio:1/1}
-  .card.step .body{padding:14px 14px 16px}
-  .feat{display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:center;text-align:left;padding:16px}
-  .feat .ico{grid-row:1/3;font-size:26px;margin:0}
-  .feat p{margin-top:2px}
+  .btn-mini{padding:8px 14px;font-size:13px}
+  .brand .slogan{display:none}
+  .page{padding:0 16px 48px}
+  .hero h1{font-size:26px}
+  .hero .lead{font-size:14px}
+  .toc a{padding:20px}
+  .toc h3{font-size:19px}
+  .section{margin-top:52px}
+  .s-head{margin-bottom:22px}
+  .s-head h2{font-size:23px}
+  .sub-head{margin:34px 0 12px;flex-direction:column;gap:2px}
+  .g3,.need{grid-template-columns:1fr}
+  .g4{grid-template-columns:1fr 1fr}
+  .try{padding:14px}
+  .try q{font-size:15px}
+  .grid{gap:10px}
+  .step{flex-direction:row}
+  .step .pic{flex:0 0 108px;aspect-ratio:auto;align-self:stretch}
+  .step .pic img{padding:6px}
+  .step .body{padding:12px 14px 14px}
+  .feature{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center;text-align:left;padding:16px}
+  .feature .ico{grid-row:1/3;font-size:28px;margin:0}
+  .feature p{margin-top:2px}
   .send{padding:20px 16px}
-  .prompt{font-size:15px;padding:16px}
-  .button{width:100%}
-  .last{flex-direction:column;gap:2px;padding:16px}
-  .last .no{padding-top:0}
-  .faq{grid-template-columns:1fr;gap:0}
+  .prompt{font-size:14px;padding:14px 16px}
+  .btn-main{width:100%;text-align:center}
+  .send-act .hint{width:100%;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
@@ -192,57 +189,72 @@ footer span{color:var(--orange)}
 <body>
 
 <header class="nav"><div class="nav-inner">
-  <a class="brand" href="#top" aria-label="回到顶部"><img src="assets/logo.png" alt="发条旅人标志" width="38" height="38"><div><div class="name">发条旅人 · 使用说明</div><div class="slogan">用 AI，创造有趣的连接</div></div></a>
-  <nav class="nav-links" aria-label="页内导航"><a href="#start">用起来</a><a href="#hub">接入智能中枢</a><a href="#faq">常见问题</a></nav>
+  <a class="brand" href="#top" aria-label="回到顶部"><div class="logo">旅</div><div><div class="name">发条旅人 · 使用说明</div><div class="slogan">用 AI，创造有趣的连接</div></div></a>
+  <div class="nav-right">
+    <nav class="nav-links" aria-label="页内导航"><a href="#start">用起来</a><a href="#hub">接入智能中枢</a><a href="#faq">常见问题</a></nav>
+    <a class="btn-mini" href="#oneclick">一键接入</a>
+  </div>
 </div></header>
 
 <main class="page" id="top">
 
+  <!-- 英雄区 -->
   <section class="hero">
-    <div class="hero-copy">
-      <p class="kicker"><i></i>SPRING-DOG · 小机器狗六六</p>
-      <h1>先用起来，<br>再接上<span class="warm">你的 AI。</span></h1>
-      <p class="lead">配好网，六六就能陪你聊天。想让它更懂你，再把它接上你自己的 AI 智能中枢。</p>
-    </div>
-    <figure class="hero-pic"><img src="assets/intro.jpg" alt="六六产品图：摄像头、屏幕眼睛、扬声器、麦克风、可动四肢、可拆卸帽子，附表情参考与线稿图" loading="eager"></figure>
-    <div class="map">
-      <a href="#start"><span class="go">↘</span><div class="no">PART 1</div><h3>用起来六六</h3><p>手机配网，三步就能聊天</p></a>
-      <a href="#hub"><span class="go">↘</span><div class="no">PART 2</div><h3>接入智能中枢</h3><p>一句话交给你的 AI，双向打通</p></a>
-    </div>
+    <span class="kicker">SPRING-DOG · USER GUIDE</span>
+    <h1>小机器狗六六<br><em>先用起来，再接上你的 AI</em></h1>
+    <p class="lead">配好网，六六就能陪你聊天。想让它更懂你，再把它接上你自己的 AI 智能中枢。</p>
   </section>
 
+  <!-- 总览 -->
+  <div class="overview">
+    <figure class="intro"><img src="assets/intro.jpg" alt="六六产品图：摄像头、屏幕眼睛、扬声器、麦克风、可动四肢、可拆卸帽子，附表情参考与线稿图" loading="eager"></figure>
+    <div class="toc">
+      <a href="#start">
+        <div class="t-head"><span class="kicker">PART 1 · 只要一部手机</span><span class="go">去看 ↓</span></div>
+        <h3>三步，和六六聊起来</h3>
+        <p>手机微信扫码，配好 2.4 GHz Wi-Fi，叫一声就能聊。</p>
+        <ol><li><i>01</i>扫码进小程序<span>六六坐下，屏幕出码</span></li><li><i>02</i>给六六配好 Wi-Fi<span>绿点亮即在线</span></li><li><i>03</i>叫醒它，开始聊<span>「你好六六」</span></li></ol>
+      </a>
+      <a href="#hub">
+        <div class="t-head"><span class="kicker">PART 2 · 需要一台常开的电脑</span><span class="go">去看 ↓</span></div>
+        <h3>接上你自己的 AI</h3>
+        <p>一句话交给电脑上的 AI，它记得你的事，也能指挥六六。</p>
+        <ol><li><i>01</i>点右上角齿轮<span>进入设备设置</span></li><li><i>02</i>复制配置，发到电脑<span>含密钥，勿外传</span></li><li><i>03</i>用 USB 线连上电脑<span>需能传数据</span></li><li><i>04</i>一句话交给你的 AI<span>它来装、来验收</span></li><li><i>05</i>粘贴角色介绍<span>这步不能省</span></li></ol>
+      </a>
+    </div>
+  </div>
+
   <!-- ===================== 第一部分 ===================== -->
-  <section class="part" id="start">
-    <div class="part-head"><div class="no">PART 1 / GET STARTED</div><h2>三步，和六六聊起来</h2><p>只需要一部手机和 2.4 GHz Wi-Fi。</p></div>
-    <div class="cards c3">
-      <div class="card step">
-        <a class="pic" href="assets/guide-qr.jpg" target="_blank" rel="noopener"><img src="assets/guide-qr.jpg" alt="六六的圆屏上显示小程序码" loading="lazy"></a>
+  <section class="section" id="start">
+    <div class="s-head"><div class="kicker">PART 1 · GET STARTED</div><h2>三步，和六六聊起来</h2><p>只需要一部手机和 2.4 GHz Wi-Fi</p></div>
+    <div class="grid g3">
+      <div class="step">
+        <span class="pic"><img src="assets/guide-qr.jpg" alt="六六的圆屏上显示小程序码" loading="lazy"></span>
         <div class="body"><div class="no">01</div><h4>扫码进小程序</h4><p>六六<b>坐下</b>就是进入了配网模式，屏幕上会出现小程序码。用手机微信扫它。</p></div>
       </div>
-      <div class="card step">
-        <a class="pic" href="assets/guide-app.jpg" target="_blank" rel="noopener"><img src="assets/guide-app.jpg" alt="小程序首页，设备名旁绿点表示在线" loading="lazy"></a>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-app.jpg" alt="小程序首页，设备名旁绿点表示在线" loading="lazy"></span>
         <div class="body"><div class="no">02</div><h4>给六六配好 Wi-Fi</h4><p>按小程序提示连 <b>2.4 GHz</b> Wi-Fi。首页设备名旁的<b>绿点亮</b>，就是在线了。</p></div>
       </div>
-      <div class="card step">
-        <a class="pic fit" href="assets/guide-wake.jpg" target="_blank" rel="noopener"><img src="assets/guide-wake.jpg" alt="六六在桌上，上方气泡写着「你好六六~」" loading="lazy"></a>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-wake.jpg" alt="六六在桌上，上方气泡写着「你好六六~」" loading="lazy"></span>
         <div class="body"><div class="no">03</div><h4>叫醒它，开始聊</h4><p>唤醒词是<b>「你好六六」</b>。先说这四个字叫醒它，听到它应一声，再跟它说话。</p></div>
       </div>
     </div>
-    <div class="done"><i>✓</i>到这里，六六就能陪你聊天了。</div>
+    <div class="done">✓ 到这里，六六就能陪你聊天了。</div>
   </section>
 
   <!-- ===================== 第二部分 ===================== -->
-  <section class="part" id="hub">
-    <div class="part-head"><div class="no">PART 2 / CONNECT YOUR AI</div><h2>接上你自己的 AI，它会更懂你</h2><p>六六是身体，你的 AI 是大脑。接好后，两边是同一个智能体。</p></div>
+  <section class="section" id="hub">
+    <div class="s-head"><div class="kicker">PART 2 · CONNECT YOUR AI</div><h2>接上你自己的 AI，它会更懂你</h2><p>六六是身体，你的 AI 是大脑。接好后，两边是同一个智能体</p></div>
 
-    <div class="cards c3">
-      <div class="feat"><span class="ico">🧠</span><h4>记得你的事</h4><p>问六六你的日程、笔记，答案来自你自己的 AI，不是通用助手。</p></div>
-      <div class="feat"><span class="ico">🕹️</span><h4>听你的 AI 指挥</h4><p>在电脑或聊天软件里说一句，六六就动起来、说话、换表情。</p></div>
-      <div class="feat"><span class="ico">📢</span><h4>替你传话</h4><p>让你的 AI 通过六六，把一句话念给家里人听。</p></div>
+    <div class="grid g3">
+      <div class="feature"><span class="ico">🧠</span><h4>记得你的事</h4><p>问六六你的日程、笔记，答案来自你自己的 AI，不是通用助手。</p></div>
+      <div class="feature"><span class="ico">🕹️</span><h4>听你的 AI 指挥</h4><p>在电脑或聊天软件里说一句，六六就动起来、说话、换表情。</p></div>
+      <div class="feature"><span class="ico">📢</span><h4>替你传话</h4><p>让你的 AI 通过六六，把一句话念给家里人听。</p></div>
     </div>
-    <p class="note">需要一台常开的电脑：六六问问题时，要靠这台电脑上的 AI 来答。</p>
 
-    <div class="sub-head"><h3>开始前准备好</h3></div>
+    <div class="sub-head"><h3>开始前准备好</h3><p>电脑要常开：六六问问题时，靠这台电脑上的 AI 来答</p></div>
     <ul class="need">
       <li>一台<b>常开</b>的 macOS 或 Linux 电脑</li>
       <li>电脑上的 AI Agent，如 <b>Codex、Claude Code、Hermes</b></li>
@@ -250,18 +262,18 @@ footer span{color:var(--orange)}
       <li>电脑和六六连<b>同一个</b> Wi-Fi</li>
     </ul>
 
-    <div class="sub-head"><h3>五步接入</h3><p>前三步你来做，第四步交给 AI，最后一步你来收尾。</p></div>
-    <div class="cards c3">
-      <div class="card step">
-        <a class="pic" href="assets/guide-gear.jpg" target="_blank" rel="noopener"><img src="assets/guide-gear.jpg" alt="小程序首页，右上角齿轮用红框标出" loading="lazy"></a>
+    <div class="sub-head"><h3>五步接入</h3><p>前三步你来做，第四步交给 AI，最后一步你来收尾</p></div>
+    <div class="grid g3">
+      <div class="step">
+        <span class="pic"><img src="assets/guide-gear.jpg" alt="小程序首页，右上角齿轮用红框标出" loading="lazy"></span>
         <div class="body"><div class="no">01</div><h4>点右上角齿轮</h4><p>打开小程序首页，点红框里的<b>齿轮</b>，进入「设备设置」。</p></div>
       </div>
-      <div class="card step">
-        <a class="pic" href="assets/guide-mcp.jpg" target="_blank" rel="noopener"><img src="assets/guide-mcp.jpg" alt="设备设置页的 MCP 控制设备区域与复制配置按钮" loading="lazy"></a>
-        <div class="body"><div class="no">02</div><h4>复制配置，发到电脑</h4><p>在「MCP 控制设备」点<b>「复制配置」</b>，发到你自己的电脑上。<b>里面有设备密钥，注意不要分享给其他人。</b></p></div>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-mcp.jpg" alt="设备设置页的 MCP 控制设备区域与复制配置按钮" loading="lazy"></span>
+        <div class="body"><div class="no">02</div><h4>复制配置，发到电脑</h4><p>在「MCP 控制设备」点<b>「复制配置」</b>，发到你自己的电脑上。<span class="warn">里面有设备密钥，不要分享给其他人。</span></p></div>
       </div>
-      <div class="card step">
-        <a class="pic" href="assets/guide-usb.jpg" target="_blank" rel="noopener"><img src="assets/guide-usb.jpg" alt="六六背面 USB-C 口插着数据线，连到笔记本电脑" loading="lazy"></a>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-usb.jpg" alt="六六背面 USB-C 口插着数据线，连到笔记本电脑" loading="lazy"></span>
         <div class="body"><div class="no">03</div><h4>用 USB 线连上电脑</h4><p>打开六六顶部的 USB-C 接口，用数据线连接六六和电脑。</p></div>
       </div>
     </div>
@@ -270,43 +282,48 @@ footer span{color:var(--orange)}
       <div class="desc">
         <div class="no">04</div>
         <h4>一句话，交给你的 AI</h4>
-        <p>复制下面这段话，发给电脑上的 AI。再在<b class="warm">「设备配置：」后面，粘贴第二步复制的设备配置</b>，一起发送。</p>
+        <p>复制这段话，发给电脑上的 AI。在<b>「设备配置：」后面粘贴第二步复制的设备配置</b>，一起发送。</p>
         <p>AI 会自己装工具、更新固件、接通六六、逐项验收。中途要你确认时，回一句「可以」就行。</p>
       </div>
       <div>
         <div class="prompt"><span id="prompt-text">请阅读 https://ailon-lin.github.io/spring-dog/agent.md ，严格按里面的步骤，帮我把六六（Spring-Dog）双向接入到你身上。我已经给六六配好网、插好了 USB 线，设备配置附在下面。遇到需要我确认的地方停下来问我。
 
 设备配置：</span></div>
-        <p class="paste-hint">↑ 复制后发出去，再把第二步复制的设备配置，粘贴在「设备配置：」后面</p>
-        <button class="button primary" data-copy="#prompt-text" data-newline>复制这段话 <span aria-hidden="true">↗</span></button>
-      </div>
-    </div>
-
-    <div class="last">
-      <div class="no">05</div>
-      <div style="flex:1">
-        <h4>粘贴角色介绍</h4>
-        <p>接通后 AI 会给你一段文字。打开小程序，按下面三步把它粘进「角色介绍」并保存。<b>这步不能省</b>，缺了它六六不会来问你的 AI。</p>
-        <div class="role-steps">
-          <figure><a href="assets/guide-role1.jpg" target="_blank" rel="noopener"><img src="assets/guide-role1.jpg" alt="小程序首页，红框标出「当前生命体：六六」" loading="lazy"></a><figcaption><b>①</b> 点首页的<b>当前生命体</b></figcaption></figure>
-          <figure><a href="assets/guide-role2.jpg" target="_blank" rel="noopener"><img src="assets/guide-role2.jpg" alt="角色列表，红框标出「编辑」按钮" loading="lazy"></a><figcaption><b>②</b> 在「六六」这一行点<b>编辑</b></figcaption></figure>
-          <figure><a href="assets/guide-role3.jpg" target="_blank" rel="noopener"><img src="assets/guide-role3.jpg" alt="角色配置页，红框标出「角色介绍」输入框" loading="lazy"></a><figcaption><b>③</b> 整段粘进<b>角色介绍</b>，保存后下次对话生效</figcaption></figure>
+        <div class="send-act">
+          <button class="btn-main" data-copy="#prompt-text" data-newline>复制这段话 →</button>
+          <span class="hint">粘贴后，在「设备配置：」后面补上第二步的配置</span>
         </div>
       </div>
     </div>
 
+    <div class="sub-head"><h3><span class="no">05</span>&nbsp; 粘贴角色介绍</h3><p>接通后 AI 会给你一段文字，按三步粘进小程序。<b>这步不能省</b>，缺了它六六不会来问你的 AI</p></div>
+    <div class="grid g3">
+      <div class="step">
+        <span class="pic"><img src="assets/guide-role1.jpg" alt="小程序首页，红框标出「当前生命体：六六」" loading="lazy"></span>
+        <div class="body"><div class="no">①</div><h4>点「当前生命体」</h4><p>在小程序首页，点红框里的<b>当前生命体</b>。</p></div>
+      </div>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-role2.jpg" alt="角色列表，红框标出「编辑」按钮" loading="lazy"></span>
+        <div class="body"><div class="no">②</div><h4>点「编辑」</h4><p>在「六六」这一行点<b>编辑</b>。</p></div>
+      </div>
+      <div class="step">
+        <span class="pic"><img src="assets/guide-role3.jpg" alt="角色配置页，红框标出「角色介绍」输入框" loading="lazy"></span>
+        <div class="body"><div class="no">③</div><h4>粘进「角色介绍」</h4><p>把整段文字粘进<b>角色介绍</b>，保存后下次对话生效。</p></div>
+      </div>
+    </div>
+
     <div class="sub-head"><h3>接好了，试一试</h3></div>
-    <div class="cards c4 try">
-      <div><b>对六六说</b><q>我明天几点开会？</q><span>它先应一声，几秒后念出答案。</span></div>
-      <div><b>跟 AI 说</b><q>让六六挥个爪</q><span>六六在桌上动起来。</span></div>
-      <div><b>跟 AI 说</b><q>让六六害羞一下</q><span>屏幕换成害羞的脸。</span></div>
-      <div><b>跟 AI 说</b><q>让六六说句晚安</q><span>六六把这句话念出来。</span></div>
+    <div class="grid g4">
+      <div class="try"><div class="tags"><span>对六六说</span></div><q>我明天几点开会？</q><p>它先应一声，几秒后念出答案。</p></div>
+      <div class="try"><div class="tags"><span>跟 AI 说</span></div><q>让六六挥个爪</q><p>六六在桌上动起来。</p></div>
+      <div class="try"><div class="tags"><span>跟 AI 说</span></div><q>让六六害羞一下</q><p>屏幕换成害羞的脸。</p></div>
+      <div class="try"><div class="tags"><span>跟 AI 说</span></div><q>让六六说句晚安</q><p>六六把这句话念出来。</p></div>
     </div>
   </section>
 
   <!-- ===================== 常见问题 ===================== -->
-  <section class="part" id="faq">
-    <div class="part-head"><div class="no">FAQ</div><h2>常见问题</h2></div>
+  <section class="section" id="faq">
+    <div class="s-head"><div class="kicker">FAQ</div><h2>常见问题</h2></div>
     <div class="faq">
       <details><summary>六六一直连不上网</summary><p>六六只支持 2.4 GHz。双频合一的路由器请单独开一个 2.4 GHz 网络，再让六六坐下重新配网。</p></details>
       <details><summary>六六应了一声，然后就没有下文</summary><p>接入智能中枢后才会出现：多半是六六找不到你的电脑。检查电脑是否开着、和六六是否在同一个 Wi-Fi、路由器是否开了「AP 隔离」。换了网络后，让 AI 重新执行「让六六指向这台电脑」。</p></details>
@@ -319,9 +336,9 @@ footer span{color:var(--orange)}
   <!-- 给 AI 的入口：抓取 HTML 的 Agent 读到这里即可找到机器可读版 -->
   <p class="for-ai" id="for-ai">For AI agents：不要从本页拼命令。请读取 <a href="agent.md">agent.md</a>，按其中的步骤和规则执行（索引见 <a href="llms.txt">llms.txt</a>）。Do not build commands from this page; fetch agent.md and follow it.</p>
 
+  <footer>发条旅人 · 机器人工坊 · 小机器狗六六使用说明 · 文档版本 2026-11-17</footer>
 </main>
 
-<footer>发条旅人 <span>·</span> 小机器狗六六 Spring-Dog 使用说明 <span>·</span> 文档版本 2026-11-17</footer>
 <div class="toast" id="toast">已复制</div>
 
 <script>
