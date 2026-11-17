@@ -130,6 +130,13 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
 
 .grid>*,.steps>*,.hero .wrap>*,.examples>*,.bound>*{min-width:0}
+.shots{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.shots{align-items:stretch}
+.shots figure{margin:0;flex:1 1 220px;max-width:320px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.shots a{display:block;line-height:0;background:#0f1220}
+.shots img{display:block;width:100%;height:auto}
+.shots figcaption{font-size:13px;color:var(--ink-2);padding:9px 12px;line-height:1.45;margin-top:auto}
+.shots figcaption b{color:var(--ink)}
 @media (max-width:820px){
   table{display:block;overflow-x:auto}
   .hero .wrap,.g3,.g2,.examples,.bound{grid-template-columns:1fr}
@@ -266,11 +273,21 @@ footer{padding:30px 0 50px;color:var(--mute);font-size:13px;text-align:center}
 
     <div class="step"><h3>烧录固件 <span class="who h">你插线</span><span class="who a">AI</span></h3>
       <pre>~/.rig-puppy/bin/spring-dog flash --version latest --mode full</pre>
-      <p>第一次只出计划，不碰设备。确认后带上计划里的 <code>--yes --plan-id</code> 再跑一次，约 4 分钟。</p></div>
+      <p>第一次只出计划，不碰设备。确认后带上计划里的 <code>--yes --plan-id</code> 再跑一次，约 4 分钟。</p>
+      <div class="shots"><figure><a href="assets/guide-usb.jpg" target="_blank" rel="noopener"><img src="assets/guide-usb.jpg" alt="六六背面 USB-C 口插着数据线，连到旁边的笔记本电脑" loading="lazy"></a>
+      <figcaption><b>USB-C 口在背面</b>，用数据线直连电脑；线只能充电不行。点图可放大。</figcaption></figure></div></div>
 
     <div class="step"><h3>配网，复制设备信息 <span class="who h">你</span></h3>
       <p>六六<b>坐下</b>就是进入了配网模式，用厂家小程序给它配 2.4 GHz Wi-Fi。</p>
-      <p>在小程序的「设备信息」页，复制那段 <code>mcpServers</code> 配置交给 AI。<b>里面有设备密钥，不要发到群里或公开的地方。</b></p></div>
+      <p>在小程序的「设备设置 → MCP 控制设备」里点<b>「复制配置」</b>，把那段 <code>mcpServers</code> 交给 AI。<b>里面有设备密钥，不要发到群里或公开的地方。</b></p>
+      <div class="shots">
+        <figure class="tall"><a href="assets/guide-qr.jpg" target="_blank" rel="noopener"><img src="assets/guide-qr.jpg" alt="六六的圆屏上显示小程序码" loading="lazy"></a>
+        <figcaption><b>① 扫码进小程序</b><br>六六的圆屏上就有小程序码，手机扫它。</figcaption></figure>
+        <figure class="tall"><a href="assets/guide-home.jpg" target="_blank" rel="noopener"><img src="assets/guide-home.jpg" alt="小程序首页：设备在线、当前生命体" loading="lazy"></a>
+        <figcaption><b>② 确认设备在线</b><br>顶部是设备名，绿点表示已连上。</figcaption></figure>
+        <figure class="tall"><a href="assets/guide-mcp.jpg" target="_blank" rel="noopener"><img src="assets/guide-mcp.jpg" alt="设备设置页的 MCP 控制设备区域与复制配置按钮" loading="lazy"></a>
+        <figcaption><b>③ 设备设置 → MCP 控制设备</b><br>点「复制配置」，粘给 AI。图里的密钥已抹掉。</figcaption></figure>
+      </div></div>
 
     <div class="step"><h3>双向接入 <span class="who a">AI</span></h3>
       <pre># 先起中转
