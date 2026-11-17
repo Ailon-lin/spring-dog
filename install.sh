@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-# RIG-Puppy 一键安装：spring-dog（烧录）+ rig-hub（中转）+ rig-dog（MCP 适配器）
+# Spring-Dog 一键安装：spring-dog（烧录）+ rig-hub（中转）+ rig-dog（MCP 适配器）
 # 用法：curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 # 只写 ~/.rig-puppy/ 与 ~/.agents/skills/spring-dog-cli，不需要 sudo。
 set -euo pipefail
 
-RELEASE_BASE="${RIG_PUPPY_RELEASE_BASE:-https://github.com/Ailon-lin/spring-dog/releases/latest/download}"
+# 工具单独发在固定 tag 上，不跟固件的 latest 走：发新固件时 latest 会换，工具不能跟着消失
+TOOLS_TAG="${RIG_PUPPY_TOOLS_TAG:-tools-2026.11.17}"
+RELEASE_BASE="${RIG_PUPPY_RELEASE_BASE:-https://github.com/Ailon-lin/spring-dog/releases/download/$TOOLS_TAG}"
 HOME_DIR="${RIG_PUPPY_HOME:-$HOME/.rig-puppy}"
 SKILL_DIR="$HOME/.agents/skills/spring-dog-cli"
 
@@ -37,12 +39,12 @@ fetch() {
 }
 
 fetch SHA256SUMS
-for f in spring-dog-cli.tar.gz rig-hub.pyz rig-dog.pyz; do fetch "$f"; done
+for f in spring-dog-cli.tar.gz rig-tools.tar.gz; do fetch "$f"; done
 
 say "校验 SHA-256"
 ( cd "$TMP"
   if command -v shasum >/dev/null; then SUM="shasum -a 256"; else SUM="sha256sum"; fi
-  grep -E ' (spring-dog-cli\.tar\.gz|rig-hub\.pyz|rig-dog\.pyz)$' SHA256SUMS | $SUM -c - ) \
+  grep -E ' (spring-dog-cli|rig-tools)\.tar\.gz$' SHA256SUMS | $SUM -c - ) \
   || die "校验不通过，已中止，未改动任何文件"
 
 say "安装技能到 $SKILL_DIR"
@@ -54,8 +56,12 @@ if [ -d "$HOME/.claude" ]; then
   ln -sfn "$SKILL_DIR" "$HOME/.claude/skills/spring-dog-cli"
 fi
 
-install -m 0644 "$TMP/rig-hub.pyz" "$HOME_DIR/lib/rig-hub.pyz"
-install -m 0644 "$TMP/rig-dog.pyz" "$HOME_DIR/lib/rig-dog.pyz"
+# rig_hub 与 rig_dog.py 要放在同一个真实目录里：两者按 __file__ 互相定位
+say "安装 rig-hub / rig-dog 到 $HOME_DIR/lib/tools"
+rm -rf "$HOME_DIR/lib/tools.new" && mkdir -p "$HOME_DIR/lib/tools.new"
+tar -xzf "$TMP/rig-tools.tar.gz" -C "$HOME_DIR/lib/tools.new" --strip-components=1
+rm -rf "$HOME_DIR/lib/tools" && mv "$HOME_DIR/lib/tools.new" "$HOME_DIR/lib/tools"
+rm -f "$HOME_DIR/lib/rig-hub.pyz" "$HOME_DIR/lib/rig-dog.pyz"
 
 cat > "$HOME_DIR/bin/spring-dog" <<EOF
 #!/usr/bin/env bash
@@ -63,12 +69,13 @@ exec node "$SKILL_DIR/scripts/spring-dog.mjs" "\$@"
 EOF
 cat > "$HOME_DIR/bin/rig-hub" <<EOF
 #!/usr/bin/env bash
-exec python3 "$HOME_DIR/lib/rig-hub.pyz" "\$@"
+export PYTHONPATH="$HOME_DIR/lib/tools\${PYTHONPATH:+:\$PYTHONPATH}"
+exec python3 -m rig_hub "\$@"
 EOF
 cat > "$HOME_DIR/bin/rig-dog" <<EOF
 #!/usr/bin/env bash
 export RIG_DOG_ENV_FILE="\${RIG_DOG_ENV_FILE:-$HOME_DIR/dog.env}"
-exec python3 "$HOME_DIR/lib/rig-dog.pyz" "\$@"
+exec python3 "$HOME_DIR/lib/tools/rig_dog.py" "\$@"
 EOF
 chmod 0755 "$HOME_DIR/bin/"*
 
@@ -79,4 +86,4 @@ fi
 say "完成。入口在 $HOME_DIR/bin/"
 echo "  $HOME_DIR/bin/spring-dog doctor"
 echo "  $HOME_DIR/bin/rig-hub --version"
-echo "下一步：把 https://ailon-lin.github.io/spring-dog/agent.md 交给你的 AI，或按网页步骤继续。"
+echo "下一步：回到你的 AI，按 agent.md 继续。"

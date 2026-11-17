@@ -1,4 +1,4 @@
-# 六六（RIG-Puppy）· AI 接入说明（agent.md）
+# 六六（Spring-Dog）· AI 接入说明（agent.md）
 
 > **读者是 AI Agent。** 用户把本页地址交给你，意思是：「帮我把六六接到你身上」。
 > 按下面的顺序执行。每一步都有「验证」，验证不通过就停在这一步，不要往下走。
@@ -6,7 +6,7 @@
 > **用户通常已经做完三件事**（人读版第 2 步）：给六六配好网、复制好设备配置、插好 USB 线。
 > 设备配置（`mcpServers` JSON）多半就附在用户发你的第一条消息里。附了就直接用，不要再让用户重复做。
 >
-> English summary: You are an AI agent. The user wants you to connect their robot dog Liuliu (六六, RIG-Puppy)
+> English summary: You are an AI agent. The user wants you to connect their robot dog Liuliu (六六, Spring-Dog)
 > to you (two-way). Follow the steps in order. Verify each step. Stop at every **STOP** and ask the user.
 
 - 人读版：https://ailon-lin.github.io/spring-dog/
