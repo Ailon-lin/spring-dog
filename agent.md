@@ -3,6 +3,9 @@
 > **读者是 AI Agent。** 用户把本页地址交给你，意思是：「帮我把六六接到你身上」。
 > 按下面的顺序执行。每一步都有「验证」，验证不通过就停在这一步，不要往下走。
 >
+> **用户通常已经做完三件事**（人读版第 2 步）：给六六配好网、复制好设备配置、插好 USB 线。
+> 设备配置（`mcpServers` JSON）多半就附在用户发你的第一条消息里。附了就直接用，不要再让用户重复做。
+>
 > English summary: You are an AI agent. The user wants you to connect their robot dog Liuliu (六六, RIG-Puppy)
 > to you (two-way). Follow the steps in order. Verify each step. Stop at every **STOP** and ask the user.
 
@@ -70,7 +73,8 @@ curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 
 ## 3. 烧录固件（六六已烧过最新版时跳过）
 
-1. 让用户用**数据线**把六六直插电脑（只供电的线不行，尽量不经 USB Hub）。
+1. 用户已插好 USB 线时直接往下做；没插就让用户用**数据线**把六六直插电脑（只供电的线不行，尽量不经 USB Hub）。
+   烧录不擦 NVS，用户先前配好的 Wi-Fi 会保留，不用重新配网。
 2. 初始化并自检：
 
    ```bash
@@ -113,10 +117,13 @@ curl -fsSL https://ailon-lin.github.io/spring-dog/install.sh | bash
 
 ## 4. 配网与绑定（用户在手机上做）
 
+**先看用户的第一条消息里有没有附 `mcpServers` JSON。** 有：直接跳到下面「拿到后」那一段，不要 STOP。
+没有，或者 JSON 不完整（缺 `Authorization` / `X-Device-Id`）：
+
 **STOP**：请用户完成下面两件事，完成后告诉你：
 
 1. 六六连不上 Wi-Fi 时会自动进入配网模式，**可见信号是六六坐下**。用户用厂家小程序给六六配 2.4 GHz Wi-Fi。
-2. 在小程序的「设备信息」页，复制整段 `mcpServers` JSON 发给你。它长这样：
+2. 在小程序里点右上角齿轮 →「设备设置 → MCP 控制设备」→「复制配置」，把整段 `mcpServers` JSON 发给你。它长这样：
 
    ```json
    {"mcpServers": {"RIG-Puppy-XX": {"type": "streamableHttp",
