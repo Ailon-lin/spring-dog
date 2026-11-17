@@ -1,0 +1,11 @@
+# RIG-Puppy 机器狗 · 接入入口
+
+> 桌面级 AI 机器狗。接到用户自己的 AI 中枢后双向打通：狗问中枢（异步播报），中枢指挥狗（动作 / 说话 / 表情）。
+
+AI Agent 请读取并按步骤执行：
+- [agent.md](https://ailon-lin.github.io/spring-dog/agent.md)：完整接入步骤（安装、烧录、配网、双向接入、验收、排障）
+
+其他：
+- [人读版手册](https://ailon-lin.github.io/spring-dog/)
+- [一键安装脚本](https://ailon-lin.github.io/spring-dog/install.sh)
+- [固件 Releases](https://github.com/Ailon-lin/spring-dog/releases)
